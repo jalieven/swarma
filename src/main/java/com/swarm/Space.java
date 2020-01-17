@@ -6,7 +6,7 @@ import com.swarm.domain.Boid;
 import com.swarm.domain.Predator;
 import com.swarm.domain.Swarm;
 import com.swarm.domain.SwarmObject;
-// import net.sf.pii.Pii;
+import net.sf.pii.Pii;
 import processing.core.PApplet;
 import processing.core.PVector;
 
@@ -15,17 +15,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO Insert JavaDoc!
+ * Fly boids fly!
  */
 public class Space extends PApplet {
 
     private Swarm swarm;
 
-    // private Pii pii;
+    private Pii pii;
 
     private Dashboard dashboard;
 
-//    private PVector windCalibrationVector;
+    private PVector windCalibrationVector;
 
     private float spaceRotationX = PI;
 
@@ -34,10 +34,10 @@ public class Space extends PApplet {
     public Space() {
         this.swarm = new Swarm();
         if (DashboardVariables.wiiRemote) {
-//            this.pii = new Pii(null);
-//            pii.setLedStatus(new boolean[]{true, true, true, true});
-//            int[] wiiStartCalibration = this.pii.getAccelerationData();
-//            this.windCalibrationVector = new PVector(wiiStartCalibration[0], wiiStartCalibration[1], wiiStartCalibration[2]);
+            this.pii = new Pii(null);
+            pii.setLedStatus(new boolean[]{true, true, true, true});
+            int[] wiiStartCalibration = this.pii.getAccelerationData();
+            this.windCalibrationVector = new PVector(wiiStartCalibration[0], wiiStartCalibration[1], wiiStartCalibration[2]);
         }
         this.dashboard = new Dashboard(this);
     }
@@ -115,7 +115,7 @@ public class Space extends PApplet {
         rotateY(spaceRotationY);
         int[] wind = new int[]{0, 0, 0};
         if (DashboardVariables.wiiRemote) {
-            // wind = this.pii.getAccelerationData();
+            wind = this.pii.getAccelerationData();
             dashboard.control();
         }
         swarm.swirl(this, wind);
@@ -154,19 +154,19 @@ public class Space extends PApplet {
         } 
     }
 
-//    public void setWindCalibrationVector(PVector windCalibrationVector) {
-//        this.windCalibrationVector = windCalibrationVector;
-//    }
+    public void setWindCalibrationVector(PVector windCalibrationVector) {
+        this.windCalibrationVector = windCalibrationVector;
+    }
 
     public PVector getWindCalibrationVector() {
-        return null;
+        return this.windCalibrationVector;
     }
 
     public Swarm getSwarm() {
         return swarm;
     }
 
-//    public Pii getPii() {
-//        return pii;
-//    }
+    public Pii getPii() {
+        return pii;
+    }
 }

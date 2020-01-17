@@ -8,7 +8,7 @@ import processing.core.PVector;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * TODO Insert JavaDoc!
+ * Little swarmy flying objects afraid of the predators
  */
 public class Boid extends SwarmObject {
 
