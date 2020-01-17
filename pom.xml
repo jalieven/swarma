@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>swarma</groupId>
+    <artifactId>swarma</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>swarma</name>
+    <url>http://www.processing.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.processing</groupId>
+            <artifactId>processing-core</artifactId>
+            <version>1.0.3</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>net.sf</groupId>
+            <artifactId>pii</artifactId>
+            <version>0.2-SNAPSHOT</version>
+        </dependency>
+        -->
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
